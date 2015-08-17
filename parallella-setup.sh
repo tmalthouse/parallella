@@ -62,3 +62,13 @@ sudo ln /opt/openmpi/bin/* /usr/local/bin
 #Add BDT libs to linker path:
 
 sudo echo "/usr/local/browndeer/lib" >> /etc/ld.so.conf
+
+#Install coprthr_mpi preview library (for fft2d)
+
+#Yes, I know this is awful practice, but the BDT site is throwing errors for me
+wget https://web.archive.org/web/20150812193158/http://www.browndeertechnology.com/code/bdt-libcoprthr_mpi-preview.tgz
+tar -zxvf bdt-libcoprthr_mpi-preview.tgz
+cd libcoprthr_mpi
+sudo ./install.sh
+cd ../
+
