@@ -1,6 +1,9 @@
 How to set up dependencies on a clean headless linaro for Parallella:
 
 
+Run "parallella-setup.sh"
+
+OR
 
 Step 1: Go to para-para example, in parallella examples
   Why? It has all the basic dependencies for the examples
