@@ -1,5 +1,5 @@
 CC = /usr/bin/gcc
-CFLAGS = -O3
+CFLAGS = -Ofast
 
 serial:
 	$(CC) primes-serial.c $(CFLAGS) -o primes
