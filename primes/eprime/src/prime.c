@@ -22,6 +22,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <inttypes.h>
+#include <time.h>
 
 #include <e-hal.h>
 
@@ -34,6 +35,8 @@ int main(int argc, char *argv[])
 	unsigned row, col, coreid, i, j;
 	e_platform_t platform;
 	e_epiphany_t dev;
+
+	clock_t begin, end;
 
 	uint64_t max_tests = DEFAULT_MAX_TESTS;
 
@@ -73,6 +76,8 @@ int main(int argc, char *argv[])
 	uint64_t sum = 0;
 	uint64_t total_primes = 0;
 	uint64_t last = 0;
+
+	begin = clock();
 
 	while(sum < max_tests*16)
 	{
@@ -117,6 +122,9 @@ int main(int argc, char *argv[])
 		printf("Iterations/sec: %lf\n", (double)(sum - last) / 0.1);
 		last = sum;
 	}
+	end = clock();
+	time_spent = (double)(end-begin)/CLOCKS_PER_SEC;
+	printf("Total time spent was %d", time_spent);
 
 	e_finalize();
 
