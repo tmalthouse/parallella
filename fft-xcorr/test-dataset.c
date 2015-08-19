@@ -73,9 +73,11 @@ int main(int argc, char *argv[])
 		goto free_A;
 	}
 
+	float max_corr = 0;
+	char *best_match = "None";
+	
 	while (!eof) {
-		float max_corr = 0;
-		char *best_match = "None";
+
 
 		for (i = 0; i < MAX_BITMAPS; i++) {
 			if (fscanf(fp, "%s", fn_buf[i]) != 1) {
