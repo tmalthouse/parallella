@@ -107,9 +107,17 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "ERROR: xcorr failed\n");
 			break;
 		}
+		float max_corr = 0;
+		char *best_match = "None";
 
-		for (j = 0; j < i; j++)
+		for (j = 0; j < i; j++) {
 			printf("%f,%s,%s\n", corr[j], refimg, fn_buf[j]);
+			if (corr[j] != 1.0f && corr[j] > max_corr) {
+				max_corr = corr[j];
+				best_match = fn_buf[j];
+			}
+			printf("The best match was %s with a correlation of %f.\n",best_match,max_corr);
+		}
 	}
 
 	fclose(fp);
