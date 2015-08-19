@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 	uint64_t total_primes = 0;
 	uint64_t last = 0;
 
-	while(total_primes < max_tests*16)
+	while(sum < max_tests*16)
 	{
 		sum = 0;
 		total_primes = 0;
