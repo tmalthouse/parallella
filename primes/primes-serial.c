@@ -18,7 +18,7 @@ inline int isprime(unsigned long number)
 }
 
 int main(int argc, char* argv[]) {
-  clock_t begin, end;
+  clock_t begin, end, current;
   double time_spent;
   int primes_found = 0;
 
@@ -27,6 +27,11 @@ int main(int argc, char* argv[]) {
   for (int i=0;i<DEFAULT_MAX_TESTS;i++) {
     if (isprime(i)) {
       primes_found += 1;
+    }
+    if (i%100000 == 0) {
+      current = clock();
+      time_spent = (double)(current-begin)/CLOCKS_PER_SEC;
+      printf("Elapsed time: %f sec. Current number: %d.\n",time_spent,i);
     }
   }
   end = clock();
