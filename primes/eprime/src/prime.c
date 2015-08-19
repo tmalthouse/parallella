@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 	e_epiphany_t dev;
 
 	clock_t begin, end;
+	double time_spent;
 
 	uint64_t max_tests = DEFAULT_MAX_TESTS;
 
