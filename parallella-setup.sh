@@ -26,9 +26,17 @@ sudo make install
 cd ../
 
 ###Install parallella opencl package
-wget http://www.browndeertechnology.com/code/coprthr-1.6.0-parallella.tgz
-tar -zxvf coprthr-1.6.0-parallella.tgz
-sudo ./browndeer/scripts/install_coprthr_parallella.sh
+#wget http://www.browndeertechnology.com/code/coprthr-1.6.0-parallella.tgz
+#tar -zxvf coprthr-1.6.0-parallella.tgz
+#sudo ./browndeer/scripts/install_coprthr_parallella.sh
+
+#Use a fork--has everything master has + a few useful additions.
+git clone https://github.com/olajep/coprthr.git
+cd coprthr
+./configure --enable-epiphany
+make
+sudo make install
+
 
 ### Add paths to .bashrc
 echo 'export PATH=/usr/local/browndeer/bin:$PATH' >> ~/.bashrc
