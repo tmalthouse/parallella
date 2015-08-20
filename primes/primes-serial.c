@@ -20,11 +20,11 @@ inline int isprime(unsigned long number)
 int main(int argc, char* argv[]) {
   clock_t begin, end, current;
   double time_spent;
-  int primes_found = 1; //Account for 2.
+  int primes_found = 0;
 
   begin = clock();
 
-  for (int i=3;i<DEFAULT_MAX_TESTS;i+=2) {
+  for (int i=3;i<=DEFAULT_MAX_TESTS;i+=2) {
     if (isprime(i)) {
       primes_found += 1;
       //printf("%d is prime.\n",i);
