@@ -9,18 +9,21 @@ inline int isprime(unsigned long number)
 {
   unsigned long i;
   unsigned long s = sqrt(number);
-  for(i=3;i<=s;i+=2)
-  {
-    if(number % i == 0)
-      return 0;
+  if (number%3 != 0) {
+    for (i=6;i<=s;i+=6) {
+      if (number%(i+1) == 0 || number%(i-1) == 0) {
+        return 0;
+      }
+      return 1;
+    }
   }
-  return 1;
+  return 0;
 }
 
 int main(int argc, char* argv[]) {
   clock_t begin, end, current;
   double time_spent;
-  int primes_found = 1;
+  int primes_found = 2;
 
   begin = clock();
 
@@ -31,10 +34,6 @@ int main(int argc, char* argv[]) {
     }
 
     if (i%100000 == 1) {
-<<<<<<< HEAD
-=======
-	/* Every 100,000 numbers, show the current number tested and the time stamp,. */
->>>>>>> ba8e84546c76f3f78b3795e2aad134ba071cb8a9
       current = clock();
       time_spent = (double)(current-begin)/CLOCKS_PER_SEC;
       printf("Elapsed time: %f sec. Current number: %d.\n",time_spent,i);
