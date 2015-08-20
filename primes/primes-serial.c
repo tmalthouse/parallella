@@ -3,7 +3,7 @@
 #include <math.h>
 #include <time.h>
 
-#define DEFAULT_MAX_TESTS 32000000
+#define DEFAULT_MAX_TESTS 16000000
 
 inline int isprime(unsigned long number)
 {
@@ -20,7 +20,7 @@ inline int isprime(unsigned long number)
 int main(int argc, char* argv[]) {
   clock_t begin, end, current;
   double time_spent;
-  int primes_found = 0;
+  int primes_found = 1;
 
   begin = clock();
 
@@ -30,11 +30,11 @@ int main(int argc, char* argv[]) {
       //printf("%d is prime.\n",i);
     }
 
-    /*if (i%100000 == 1) {
+    if (i%100000 == 1) {
       current = clock();
       time_spent = (double)(current-begin)/CLOCKS_PER_SEC;
       printf("Elapsed time: %f sec. Current number: %d.\n",time_spent,i);
-    }*/
+    }
   }
   end = clock();
   time_spent = (double)(end - begin) / CLOCKS_PER_SEC;

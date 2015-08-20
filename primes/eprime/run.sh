@@ -2,7 +2,7 @@
 
 set -e
 
-PRIMES_PER_CORE=1000000
+PRIMES_PER_CORE=500000
 
 
 ./prime.elf ${PRIMES_PER_CORE}

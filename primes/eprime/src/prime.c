@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
 	while(sum < max_tests*16)
 	{
 		sum = 0;
-		total_primes = 0;
+		total_primes = 1;
 		usleep(100000);
 
 		// Read the stats values from each core
@@ -92,10 +92,9 @@ int main(int argc, char *argv[])
 			for(col=0;col<platform.cols;col++)
 			{
 				uint64_t count;
-				uint64_t current;
-				uint64_t sq;
-				uint64_t primes;
-
+        		        uint64_t current;
+        		        uint64_t sq;
+        		        uint64_t primes;
 				// Get the number of primality tests performed by this core
 				if(e_read(&dev, row, col, 0x7000, &count, sizeof(uint64_t)) != sizeof(uint64_t))
 					fprintf(stderr, "Failed to read\n");
@@ -124,8 +123,9 @@ int main(int argc, char *argv[])
 		last = sum;
 	}
 	end = clock();
+
 	time_spent = (double)(end-begin)/CLOCKS_PER_SEC;
-	printf("Total time spent was %d", time_spent);
+	//printf("Total time spent was %d", time_spent);
 
 	e_finalize();
 
