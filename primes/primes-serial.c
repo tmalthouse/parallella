@@ -20,19 +20,21 @@ inline int isprime(unsigned long number)
 int main(int argc, char* argv[]) {
   clock_t begin, end, current;
   double time_spent;
-  int primes_found = 0;
+  int primes_found = 1; //Account for 2.
 
   begin = clock();
 
-  for (int i=0;i<DEFAULT_MAX_TESTS;i++) {
+  for (int i=3;i<DEFAULT_MAX_TESTS;i+=2) {
     if (isprime(i)) {
       primes_found += 1;
+      //printf("%d is prime.\n",i);
     }
-    if (i%100000 == 0) {
+
+    /*if (i%100000 == 1) {
       current = clock();
       time_spent = (double)(current-begin)/CLOCKS_PER_SEC;
       printf("Elapsed time: %f sec. Current number: %d.\n",time_spent,i);
-    }
+    }*/
   }
   end = clock();
   time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
