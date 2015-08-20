@@ -20,7 +20,7 @@ inline int isprime(unsigned long number)
 int main(int argc, char* argv[]) {
   clock_t begin, end, current;
   double time_spent;
-  int primes_found = 0;
+  int primes_found = 1;
 
   begin = clock();
 
