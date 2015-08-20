@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
 	e_start_group(&dev);
 
 	uint64_t sum = 0;
-	uint64_t total_primes = 0;
+	uint64_t total_primes = 1; //Gotta account for 2
 	uint64_t last = 0;
 
 	begin = clock();

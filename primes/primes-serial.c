@@ -3,7 +3,7 @@
 #include <math.h>
 #include <time.h>
 
-#define DEFAULT_MAX_TESTS 16000000
+#define DEFAULT_MAX_TESTS 32000000
 
 inline int isprime(unsigned long number)
 {
