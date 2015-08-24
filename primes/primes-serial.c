@@ -8,22 +8,19 @@
 inline int isprime(unsigned long number)
 {
   unsigned long i;
-  unsigned long s = sqrt(number);
-  if (number%3 != 0) {
-    for (i=6;i<=s;i+=6) {
-      if (number%(i+1) == 0 || number%(i-1) == 0) {
-        return 0;
-      }
-      return 1;
-    }
-  }
-  return 0;
+	unsigned long s = sqrt(number);
+	for(i=3;i<=s;i+=2)
+	{
+		if(number % i == 0)
+			return 0;
+	}
+	return 1;
 }
 
 int main(int argc, char* argv[]) {
   clock_t begin, end, current;
   double time_spent;
-  int primes_found = 2;
+  int primes_found = 1;
 
   begin = clock();
 
