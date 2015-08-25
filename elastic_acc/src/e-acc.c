@@ -6,8 +6,10 @@
 
 #include "e_lib.h"
 
+//HACK: Should be sizeof(). Doesn't really matter on any system in the past 30 years though.
 #define FLOAT_SIZE 4
 #define CORE_COUNT 16
+//TODO: Get max iterations from host program
 #define MAX_ITER 10000000
 
 
@@ -46,6 +48,7 @@ int main(void) {
     We repeat that for the other side, and subtract the two to get the net force on the body
     ...and divide by the mass to get the acceleration.
     */
+    //TODO: Make sure the division always takes same number of clock cycles
     float accNet = (k*((*(locations-FLOAT_SIZE)-position)-INITIAL_SPACING)) - (k*((*(locations+FLOAT_SIZE)-position)-INITIAL_SPACING))/m;
     //Then we change the velocity by the acceleration (dT is 1 sec, so it cancels out.)
     vel += accNet;
@@ -55,6 +58,7 @@ int main(void) {
     *(velocities+order*FLOAT_SIZE) = vel;
     *(locations+order*FLOAT_SIZE) = position;
     *iterations++;
+    //TODO: ensure clock cycles stay synchronized.
   }
   return EXIT_SUCCESS;
 }

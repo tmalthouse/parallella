@@ -56,7 +56,6 @@ int main(void)
 	{
 		if(isprime(number))
 			(*primes)++;
-			//#TODO:60 tests
 
 		// Skip to the next odd number for this core to test, assuming total of 16 cores
 		// Core (0,0) started with 3 on the first iteration, and next test 35
