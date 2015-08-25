@@ -23,7 +23,7 @@
 volatile unsigned long long *t = (void *) 0x7000;
 volatile unsigned long long *iterations = (void*) 0x7008;
 volatile float *locations = (void *) 0x7010;
-volatile float *velocities = (void *) (location + FLOAT_SIZE*CORE_COUNT);
+volatile float *velocities = (void *) (locations + FLOAT_SIZE*CORE_COUNT);
 
 int main(void) {
   e_coreid_t id = e_get_coreid();
