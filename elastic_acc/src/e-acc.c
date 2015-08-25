@@ -64,7 +64,7 @@ int main(void) {
 }
 
 inline float net_acceleration(float spr_const, char order, float * locations, float mass, float position) {
-  switch(order):
+  switch(order){
     case(0):
       return (pull-spr_const*((position-locations[1])-INITIAL_SPACING)/m);
 
@@ -73,5 +73,6 @@ inline float net_acceleration(float spr_const, char order, float * locations, fl
 
     default:
       return (spr_const*((locations[order--]-position)-INITIAL_SPACING)-spr_const*((position-locations[order++])-INITIAL_SPACING))/m;
+  }
 
 }
