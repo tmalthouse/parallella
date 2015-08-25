@@ -7,7 +7,7 @@
 
 #include <e-hal.h>
 //TODO: Send max iterations to device program
-#define MAX_ITERATIONS = 10000000;
+#define MAX_ITERATIONS 10000000
 
 int main(int argc, char *argv[]) {
 

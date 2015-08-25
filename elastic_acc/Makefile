@@ -8,4 +8,4 @@ ELDF = ${ESDK}/bsps/current/internal.ldf
 all:
 	${CC} src/acc.c -o acc.elf -I ${EINCS} -L ${ELIBS} -le-hal -le-loader ${CFLAGS}
 
-	e-gcc -O2 -T ${ELDF} src/isprime.c src/e_prime.c -o e_prime.elf -le-lib -lm
+	e-gcc -O2 -T ${ELDF} src/e-acc.c -o e-acc.elf -le-lib -lm
