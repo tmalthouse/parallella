@@ -32,8 +32,9 @@ int main(int argc, char *argv[]) {
 	e_load_group("e-acc.elf", &dev, 0, 0, platform.rows, platform.cols, E_FALSE);
 
   e_start_group(&dev);
+  uint64_t iterations;
 
-  while (MAX_ITERATIONs*16<iterations) {
+  while (MAX_ITERATIONS*16>iterations) {
     for(row=0;row<platform.rows;row++)
 		{
 			for(col=0;col<platform.cols;col++)
@@ -57,6 +58,7 @@ int main(int argc, char *argv[]) {
         }
 
         fprintf(stderr, "The timestep is %d, the iterations*16=%d, the position is %f, and the vel is %f\n", timestep, iter_num, loc, vel);
+        iterations += iter_num;
       }
     }
   }
