@@ -38,7 +38,19 @@ int main(void) {
   float vel = 0;
   unsigned long iter = 0;
 
+  inline float net_acceleration(float spr_const, char order, float * locations, float mass, float position) {
+    switch(order){
+      case(0):
+        return (pull-spr_const*((position-locations[1])-INITIAL_SPACING)/m);
 
+      case(15):
+        return (spr_const*((locations[14]-position)-INITIAL_SPACING))/m;
+
+      default:
+        return (spr_const*((locations[order--]-position)-INITIAL_SPACING)-spr_const*((position-locations[order++])-INITIAL_SPACING))/m;
+    }
+
+  }
 
   while (iter<MAX_ITER) {
     iter++;
@@ -61,18 +73,4 @@ int main(void) {
     //TODO: ensure clock cycles stay synchronized.
   }
   return EXIT_SUCCESS;
-}
-
-inline float net_acceleration(float spr_const, char order, float * locations, float mass, float position) {
-  switch(order){
-    case(0):
-      return (pull-spr_const*((position-locations[1])-INITIAL_SPACING)/m);
-
-    case(15):
-      return (spr_const*((locations[14]-position)-INITIAL_SPACING))/m;
-
-    default:
-      return (spr_const*((locations[order--]-position)-INITIAL_SPACING)-spr_const*((position-locations[order++])-INITIAL_SPACING))/m;
-  }
-
 }
