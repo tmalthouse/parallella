@@ -34,8 +34,8 @@ int main(void) {
   //Set the initial location of the body
   //Use char to save memory--would need to be changed to int (int16?) for >255 cores
   char order = 4*row + col;
-  unsigned long position = order*INITIAL_SPACING;
-  float vel = 0;
+  unsigned long position = order*INITIAL_SPACING+30;
+  float vel = 30;
   unsigned long iter = 0;
 
   inline float net_acceleration(float spr_const, char order, float * locations, float mass, float position) {
