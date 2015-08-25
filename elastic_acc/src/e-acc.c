@@ -13,13 +13,13 @@
 
 #define INITIAL_SPACING 10 //m
 
-//Masses and acceleration are in kg and m/s^2, respectively. K is in N/m (kg/s^2)
-#define k 10 //N/m
-#define m 128 //kg
-#define pull = 10 //N
+//Masses and acceleration are in arbitrary units.
+#define k 10 //force/dist
+#define m 128 //mass
+#define pull = 10 //mass*dist/time^2
 
 volatile unsigned long long *t = (void *) 0x7000;
-volatile unsigned long long *iter = (void *) 0x7008;
+volatile unsigned long long *iterations = (void*) 0x7008;
 volatile float *locations = (void *) 0x7010;
 volatile float *velocities = (void *) (location + FLOAT_SIZE*CORE_COUNT);
 
@@ -34,11 +34,12 @@ int main(void) {
   char order = 4*row + col;
   unsigned long position = order*INITIAL_SPACING;
   float vel = 0;
+  unsigned long iter = 0;
 
 
 
-  while (*iter/16<MAX_ITER) {
-    *iter++;
+  while (iter<MAX_ITER) {
+    iter++;
     /*Stepping thorough:
     // k is the spring constant
     ((*(locations--)-position)-INITIAL_SPACING is the amount the joint is stressed (distance fron equilibrium)
@@ -53,6 +54,7 @@ int main(void) {
     //And write those changes to shared memory.
     *(velocities+order*FLOAT_SIZE) = vel;
     *(locations+order*FLOAT_SIZE) = position;
+    *iterations++;
   }
   return EXIT_SUCCESS;
 }

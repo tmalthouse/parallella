@@ -176,7 +176,7 @@ bool fftimpl_xcorr_one(uint8_t *B, int width, int height, float *out_corr)
 	/* C = ifft(C_fft) */
 	fftwf_execute(GLOB.C_inv);
 
-	/* TODO: Is the max always @0 ??? */
+	/* #TODO:20 Is the max always @0 ??? */
 
 	for (i = 0, correlation = FLT_MIN; i < NSIZE * NSIZE; i++) {
 		if (crealf(GLOB.C[i]) > correlation)

@@ -389,7 +389,7 @@ float xcorr_one(void *p_comm, int nprocs, int myrank, void *pargs,
 	return max;
 }
 
-/* TODO: xcorr_batch */
+/* #TODO:70 xcorr_batch */
 __kernel void
 my_thread (void *p) {
 	struct my_args args;

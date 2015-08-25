@@ -146,7 +146,7 @@ void *jpeg_to_grayscale_(void *jpeg, size_t jpeg_size, int *width, int *height, 
 
 	cinfo.out_color_space = JCS_GRAYSCALE;
 
-	/* HACK: Scale image to max 64x64 (so it fits in Epiphany mem incl.
+	/* #HACK:0 Scale image to max 64x64 (so it fits in Epiphany mem incl.
 	 * zero padding...) */
 	for (denom = 1;
 	     cinfo.image_width / denom > 64 || cinfo.image_height / denom > 64;

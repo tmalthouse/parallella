@@ -174,7 +174,7 @@ void cleanup()
 
 	free_wn();
 
-	/* TODO: Free GLOB.*mem buffers */
+	/* #TODO:10 Free GLOB.*mem buffers */
 }
 
 void fftimpl_fini()
@@ -187,7 +187,7 @@ void fftimpl_fini()
 	GLOB.initialized = false;
 }
 
-/* TODO: Error check */
+/* #TODO:0 Error check */
 static bool allocate_bufs()
 {
 	size_t wn_sz = NSIZE * sizeof(cfloat);
@@ -202,7 +202,7 @@ static bool allocate_bufs()
 	/* / 2 since we use float here, /4 == no transfer zero pad */
 	GLOB.bmps_mem	= coprthr_dmalloc(GLOB.coprthr_dd, bmp_sz, 0);
 	GLOB.ref_fft_mem= coprthr_dmalloc(GLOB.coprthr_dd, bitmap_sz, 0);
-	/* TODO: nmbr of bitmaps in bmps_mem * sizeof(float) */
+	/* #TODO:40 nmbr of bitmaps in bmps_mem * sizeof(float) */
 	GLOB.results_mem= coprthr_dmalloc(GLOB.coprthr_dd,
 					  MAX_BITMAPS * sizeof(float), 0);
 
@@ -251,7 +251,7 @@ bool fftimpl_init()
 		goto fail;
 	}
 
-	/* TODO: Print error */
+	/* #TODO:30 Print error */
 	if (!allocate_bufs())
 		goto fail;
 
