@@ -18,7 +18,7 @@
 //Masses and acceleration are in arbitrary units.
 #define k 10 //force/dist
 #define m 128 //mass
-#define pull = 10 //mass*dist/time^2
+#define pull 10 //mass*dist/time^2
 
 volatile unsigned long long *t = (void *) 0x7000;
 volatile unsigned long long *iterations = (void*) 0x7008;
