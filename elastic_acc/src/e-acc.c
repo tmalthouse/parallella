@@ -49,7 +49,7 @@ int main(void) {
     ...and divide by the mass to get the acceleration.
     */
     //TODO: Make sure the division always takes same number of clock cycles
-    float accNet = net_acceleration(k, order, locations, m);
+    float accNet = net_acceleration(k, order, locations, m, position);
     //Then we change the velocity by the acceleration (dT is 1 sec, so it cancels out.)
     vel += accNet;
     //Update the position...
@@ -63,8 +63,8 @@ int main(void) {
   return EXIT_SUCCESS;
 }
 
-inline float net_acceleration(float spr_const, char order, float * locations, float mass) {
-  switch order:
+inline float net_acceleration(float spr_const, char order, float * locations, float mass, float position) {
+  switch(order):
     case(0):
       return (pull-spr_const*((position-locations[1])-INITIAL_SPACING)/m);
 
