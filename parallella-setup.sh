@@ -43,9 +43,11 @@ echo 'export PATH=/usr/local/browndeer/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/browndeer/lib:/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
 
 ### Add paths to root .bashrc
+user=$USER
 sudo su
 echo 'export PATH=/usr/local/browndeer/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/browndeer/lib:/usr/local/lib:$LD_LIBRARY_PATH' >> ~/.bashrc
+su $user
 
 ### Add paths to .cshrc
 echo 'setenv PATH /usr/local/bin:$PATH' >> ~/.cshrc
