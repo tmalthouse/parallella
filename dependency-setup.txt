@@ -1,5 +1,6 @@
 How to set up dependencies on a clean headless linaro for Parallella:
 
+Make sure you have eSDK 2014.11 installed!
 
 Run "parallella-setup.sh"
 
