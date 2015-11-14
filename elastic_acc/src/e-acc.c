@@ -46,7 +46,7 @@ int main(void) {
 
     //TODO: Make sure the division always takes same number of clock cycles
     float accNet = net_acceleration(k, order, locations, m, position);
-    //Then we change the velocity by the acceleration (dT is 1 sec, so it cancels out.)
+    //Then we change the velocity by the acceleration (ΔT is 1 unit, so it cancels out.)
     vel += accNet;
     //Update the position...
     position += vel;
@@ -59,8 +59,8 @@ int main(void) {
   return EXIT_SUCCESS;
 }
 
-inline float net_acceleration(float spr_const, char order, float * locations, float invMass, float position) {
-  switch(order){
+inline float net_acceleration(float spr_const, char order, float * locations, float inv_mass, float position) {
+  switch (order){
 
     /*Stepping thorough:
     ((*(locations--)-position)-INITIAL_SPACING is the amount the joint is stressed (distance fron equilibrium)
@@ -68,14 +68,14 @@ inline float net_acceleration(float spr_const, char order, float * locations, fl
     ...and divide by the mass to get the acceleration (Actually multiply by 1/m for performance).
     */
 
-    case(0):
-      return (pull-spr_const*((position-locations[1])-INITIAL_SPACING)*invMass);
+    case (0):
+      return (pull-spr_const*((position-locations[1])-INITIAL_SPACING)*inv_mass);
 
-    case(15):
-      return (spr_const*((locations[14]-position)-INITIAL_SPACING))*invMass;
+    case (15):
+      return (spr_const*((locations[14]-position)-INITIAL_SPACING))*inv_mass;
 
     default:
-      return (spr_const*((locations[order--]-position)-INITIAL_SPACING)-spr_const*((position-locations[order++])-INITIAL_SPACING))*invMass;
+      return (spr_const*((locations[order--]-position)-INITIAL_SPACING)-spr_const*((position-locations[order++])-INITIAL_SPACING))*inv_mass;
   }
 
 }
